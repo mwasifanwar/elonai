@@ -78,7 +78,8 @@ if st.button("Submit") and user_input.strip():
         if response.status_code == 200:
             data = response.json()
             text_response = data["text_response"]
-            audio_response = f"http://127.0.0.1:5000{data['audio_response']}"
+            audio_response = data["audio_response"]
+
 
             # Append user input and AI response to the chat history
             st.session_state.chat_history.append(
