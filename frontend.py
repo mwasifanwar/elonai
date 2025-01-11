@@ -72,7 +72,8 @@ with st.container():
 if st.button("Submit") and user_input.strip():
     with st.spinner("Elon is thinking..."):
         # Send user input to the Flask backend
-        response = requests.post("http://127.0.0.1:5000/chat", json={"question": user_input})
+        response = requests.post("https://elonai.onrender.com/chat", json={"question": user_input})
+
 
         if response.status_code == 200:
             data = response.json()
