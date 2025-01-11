@@ -104,9 +104,10 @@ def chat():
         audio_cache[gemini_response] = audio_filepath
 
     return jsonify({
-        "text_response": gemini_response,
-        "audio_response": f"/static/audio_responses/{audio_filename}"
-    })
+    "text_response": gemini_response,
+    "audio_response": f"https://elonai.onrender.com/static/audio_responses/{audio_filename}"
+})
+
     
 @app.route("/static/audio_responses/<path:filename>")
 def serve_audio(filename):
