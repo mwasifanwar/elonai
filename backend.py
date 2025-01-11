@@ -36,6 +36,16 @@ PLAYHT_OPTIONS = TTSOptions(
 # Cache for generated responses
 response_cache = {}
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({
+        "message": "Welcome to the Elon Musk AI Chat Backend",
+        "endpoints": {
+            "chat": "/chat (POST)",
+            "serve_audio": "/static/audio_responses/<filename>"
+        }
+    })
+
 # Function to fetch response from Gemini API
 def get_gemini_response(prompt):
     if prompt in response_cache:
